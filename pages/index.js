@@ -11,19 +11,19 @@ var TodoBudget = require('todo_budget');
 
 export default function Home() {
 
-    let apiInstance = new TodoBudget.DefaultApi();
-    let opts = {
-        'limit': 56 // Number | maximum number of results to return
-    };
-    apiInstance.findUsers(opts, (error, data, response) => {
-        if (error) {
-            console.error(error);
-        } else {
-            console.log('API called successfully. Returned data: ' + data);
-            // const userObj = JSON.parse(data);
-            console.log(data[0].id);
-        }
-    });
+    // let apiInstance = new TodoBudget.DefaultApi();
+    // let opts = {
+    //     'limit': 56 // Number | maximum number of results to return
+    // };
+    // apiInstance.findUsers(opts, (error, data, response) => {
+    //     if (error) {
+    //         console.error(error);
+    //     } else {
+    //         console.log('API called successfully. Returned data: ' + data);
+    //         // const userObj = JSON.parse(data);
+    //         console.log(data[0].id);
+    //     }
+    // });
 
     return ( 
     < div className = { styles.container } >

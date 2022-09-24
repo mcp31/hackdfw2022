@@ -2,9 +2,12 @@ import styles from '../styles/Home.module.css'
 import bucketStyles from '../styles/Bucket.module.css'
 import AddTransactionModal from './Components/AddTransactionModal'
 import Bucket from './Components/Bucket'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AddBucketModal from './Components/AddBucketModal';
 import ProgressBar from './Components/ProgressBar';
+import { findBudget } from './utils/findBudget';
+
+var TodoBudget = require('todo_budget');
 
 const day = new Date().getDate();
 const month = new Date().getMonth();
@@ -26,18 +29,77 @@ function TransactionCard(props) {
 
 export default function HomeScreen() {
 
+    /// Api Calls
+    let apiInstance = new TodoBudget.DefaultApi();
+    let id = 13;
+
+    // useEffect(() => {
+    //     if(user != undefined){
+    //         // setAmountSpent(user.buckets[0].amount);
+    //         // setBudget(user.buckets[0].total);
+    //         console.log(2);
+    //     }
+    //     console.log(1);
+    // }, [user]);
+    
+
+
+    // console.log('Buckets : ' + user.id);
+
+    const [user, setUser] = useState(new TodoBudget.User());
     const [input, setInput] = useState();
-
-    const [amountSpent, setAmountSpent] = useState(100);
-
     const [budget, setBudget] = useState(0);
-
+    const [amountSpent, setAmountSpent] = useState(100);
     const [modal, setModal] = useState(false);
+
+
+    // try{
+    //     await apiInstance.findUserByID(id, (error, data, response) => {
+    //         if (error) {
+    //             console.error(error);
+    //         } else {
+    //             // console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+    //             // console.log(data.id);
+    //         }
+    //         setUser(data);
+    //     });
+    // } catch (err) {
+    //     console.log(err);
+    // }
+
+    
+
+    useEffect(() => {
+        var testing = apiInstance.findUserByID(id, (error, data, response) => {
+            // console.log(data, response);
+            setUser(data);
+        });
+        // const fetchData = async () => {
+        //     try{
+        //         const usersTest = await apiInstance.findUserByID(id, (error, data, response) => {});
+        //         setUser(usersTest.data);
+        //         console.log("UserTests" + usersTest.data);
+        //     } catch (err) {
+        //         console.log(err);
+        //     }
+        // }
+        // fetchData();
+    }, []);
+
+    console.log(user.id);
+    console.log(user.id);
+    console.log("Testing" + JSON.stringify(user));
 
     const handleChange = event => {
         setInput(event.target.value);
+    
+        console.log('value is:', event.target.value)
     };
 
+
+    
+
+    /// Functional
     const toggleModal = () => {
         setModal(!modal);
     }
