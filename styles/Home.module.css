@@ -1,3 +1,15 @@
+.timeRemainingTitle {
+  color: #404040;
+}
+
+.progressBarBackground {
+  background-color: #85C3C3;
+  height: 2rem;
+  border-radius: 10px;
+}
+
+/* Examples */
+
 .container {
   padding: 0 2rem;
 }
