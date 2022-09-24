@@ -19,7 +19,9 @@ export default function Home() {
         if (error) {
             console.error(error);
         } else {
-            console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+            console.log('API called successfully. Returned data: ' + data);
+            // const userObj = JSON.parse(data);
+            console.log(data[0].id);
         }
     });
 
@@ -28,5 +30,4 @@ export default function Home() {
       <HomeScreen> </HomeScreen> 
     </div >
     )
-
 }
