@@ -5,7 +5,7 @@ import styles from '../../styles/Bucket.module.css';
 class NameForm extends React.Component{
     constructor(props) {
       super(props);
-      this.state = {value: 'Rent'};
+      this.state = {value: `${props.name}`};
   
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -80,6 +80,7 @@ export default function Bucket(props) {
         zIndex: '-1',
         width: '80px',
         height: `${props.percentage}px`,
+        marginBottom: `-${props.percentage}px`,
     }
 
     const toggleModal = () => {
@@ -101,7 +102,7 @@ export default function Bucket(props) {
                         Name:
                     </div>
                     <div>
-                        <NameForm/>
+                        <NameForm name={props.name}/>
                     </div>
                     <div>
                         Amount:
