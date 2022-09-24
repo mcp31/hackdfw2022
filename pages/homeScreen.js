@@ -1,4 +1,5 @@
 import styles from '../styles/Home.module.css'
+import AddTransactionModal from './Components/AddTransactionModal'
 import Bucket from './Components/Bucket'
 
 export default function HomeScreen() {
@@ -37,6 +38,7 @@ export default function HomeScreen() {
                     Transactions
                 </h1>
                 <h3>
+                <AddTransactionModal/>
                     List of Transactions
                 </h3>
             </div>
