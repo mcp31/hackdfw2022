@@ -73,9 +73,12 @@ export default function Bucket(props) {
         position: 'relative',
         transform: 'rotatex(180deg)',
         transformOrigin: 'top',
-        backgroundColor: `${props.color}`,
+        backgroundColor: `${props.percentage}` === '100' ? 'red' :
+        `${props.percentage}` > '75' ? 'orange' :
+        `${props.percentage}` > '50' ? 'yellow' :
+        'green',
         zIndex: '-1',
-        width: '78px',
+        width: '80px',
         height: `${props.percentage}px`,
     }
 
@@ -86,7 +89,7 @@ export default function Bucket(props) {
         <>
                 <div className={styles.bucket}>
                     {props.name}:{ props.percentage}%
-                    <button className={styles.modalButton} onClick={toggleModal}> ART </button>
+                    <button className={styles.modalButton} onClick={toggleModal}></button>
                     <div style={progressBar}></div>
                 </div>
                 {modal && (
