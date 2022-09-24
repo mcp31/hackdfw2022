@@ -2,6 +2,7 @@ import styles from '../styles/Home.module.css'
 import AddTransactionModal from './Components/AddTransactionModal'
 import Bucket from './Components/Bucket'
 import { useState, useEffect } from 'react';
+import AddBucketModal from './Components/AddBucketModal';
 
 const daysLeft = 15;
 const percentageAmount = "100px";
@@ -58,6 +59,7 @@ export default function HomeScreen() {
                         <Bucket className={styles.bucket} name={"Food"} percentage={"30"}/>
                         <Bucket className={styles.bucket} name={"Gas"} percentage={"100"}/>
                         <Bucket className={styles.bucket} name={"Other"} percentage={"85"}/>
+                        <AddBucketModal/>
                     </div>
 
             </div>

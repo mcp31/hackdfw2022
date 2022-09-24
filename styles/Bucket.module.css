@@ -94,3 +94,25 @@ body.active-modal {
 .bucket {
     text-align: center;
 }
+
+.addBucket {
+    outline: 2px solid black;
+    border-radius: 100%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addBucketButton {
+        padding: 10px 20px;
+        display: block;
+        background: none;
+        margin-top: 31px;
+        font-size: 18px;
+        margin-right: 10px;
+        margin-left: 10px;
+        height: 100px;
+        width: 80px;
+}
