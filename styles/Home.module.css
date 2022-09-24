@@ -8,6 +8,12 @@
   border-radius: 10px;
 }
 
+.progressBarPercentage {
+  background-color: #1A545B;
+  height: 2rem;
+  border-radius: 10px;
+}
+
 /* Examples */
 
 .container {
