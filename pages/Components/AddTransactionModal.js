@@ -80,7 +80,7 @@ export default function AddTransactionModal() {
     }
     const [selectedOption, setSelectedOption] = useState(null);
     useEffect(() => {
-        alert("Bucket selected: " + selectedOption.value);
+        {selectedOption && (alert("Bucket selected: " + selectedOption.value))}
     }, [selectedOption])
     return (
         <>

@@ -7,6 +7,7 @@ body.active-modal {
     display: block;
     margin-top:  10px;
     font-size: 18px;
+    margin-right: 20px;
 }
 
 .modal, .overlay {

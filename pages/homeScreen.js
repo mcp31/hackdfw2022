@@ -30,8 +30,13 @@ export default function HomeScreen() {
                 </h1>
                 <h3>
                     List of Buckets
-                    <Bucket/>
-                </h3>
+                    </h3>
+                    <div className={styles.bucketList}>
+                        <Bucket className={styles.bucket}/>
+                        <Bucket className={styles.bucket}/>
+                        <Bucket className={styles.bucket}/>
+                    </div>
+
             </div>
             <div>
                 <h1>

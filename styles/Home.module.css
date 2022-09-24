@@ -139,3 +139,8 @@
     filter: invert(1);
   }
 }
+
+.bucketList {
+  display: flex;
+  overflow-x: scroll;
+}
