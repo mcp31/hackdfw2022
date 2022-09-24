@@ -1,4 +1,5 @@
 import styles from '../styles/Home.module.css'
+import Bucket from './Components/Bucket'
 
 export default function HomeScreen() {
     return (
@@ -28,6 +29,7 @@ export default function HomeScreen() {
                 </h1>
                 <h3>
                     List of Buckets
+                    <Bucket/>
                 </h3>
             </div>
             <div>
