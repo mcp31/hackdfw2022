@@ -15,7 +15,7 @@ function ProgressBar(props) {
 function TransactionCard(props) {
     return (
         <div className={styles.transactionCard}>
-
+            <div className={styles.transactionCardCategoryColor} style={{backgroundColor: props.categoryColor}}></div>
         </div>
     )
 }
@@ -52,7 +52,8 @@ export default function HomeScreen() {
                 <h1 className={styles.sectionHeader}>
                     Transactions
                 </h1>
-                <TransactionCard></TransactionCard>
+                <TransactionCard categoryColor="#FF8996"></TransactionCard>
+                <TransactionCard categoryColor="#82B9CF"></TransactionCard>
             </div>
         </div>
         
