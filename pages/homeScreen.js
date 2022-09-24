@@ -96,6 +96,7 @@ export default function HomeScreen() {
         console.log('value is:', event.target.value)
     };
 
+
     
 
     /// Functional
@@ -135,10 +136,8 @@ export default function HomeScreen() {
                         <div className={bucketStyles.overlay}></div>
                         <div className={bucketStyles.modalContent}>
                             <div className={bucketStyles.title}> <h3>Edit Budget</h3></div>
-                            <div>
+                            <div className={bucketStyles.setBudgetLine}>
                                 Amount:
-                            </div>
-                            <div>
                                 <input
                                     type="text"
                                     id="input"
@@ -154,7 +153,7 @@ export default function HomeScreen() {
                         </div>
 
                     </div>)}
-                    <ProgressBar percentage={100 - (amountSpent/budget)*100}/>
+                    <ProgressBar percentage={(amountSpent/budget)*100}/>
                 </div>
                 <h3>${amountSpent} spent of ${budget}</h3>
 
@@ -167,11 +166,11 @@ export default function HomeScreen() {
                     List of Buckets
                     </h3>
                     <div className={styles.bucketList}>
-                        <Bucket className={styles.bucket} name={"Rent"} percentage={"20"}/>
-                        <Bucket className={styles.bucket} name={"Car"} percentage={"60"}/>
-                        <Bucket className={styles.bucket} name={"Food"} percentage={"30"}/>
-                        <Bucket className={styles.bucket} name={"Gas"} percentage={"100"}/>
-                        <Bucket className={styles.bucket} name={"Other"} percentage={"85"}/>
+                        <Bucket className={styles.bucket} name={"Rent"} amount={"1200"} percentage={"20"}/>
+                        <Bucket className={styles.bucket} name={"Car"} amount={"200"} percentage={"60"}/>
+                        <Bucket className={styles.bucket} name={"Food"} amount={"100"} percentage={"30"}/>
+                        <Bucket className={styles.bucket} name={"Gas"} amount={"350"} percentage={"100"}/>
+                        <Bucket className={styles.bucket} name={"Other"} amount={"1000"} percentage={"85"}/>
                         <AddBucketModal/>
                     </div>
 
