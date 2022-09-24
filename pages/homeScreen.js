@@ -74,10 +74,8 @@ export default function HomeScreen() {
                         <div className={bucketStyles.overlay}></div>
                         <div className={bucketStyles.modalContent}>
                             <div className={bucketStyles.title}> <h3>Edit Budget</h3></div>
-                            <div>
+                            <div className={bucketStyles.setBudgetLine}>
                                 Amount:
-                            </div>
-                            <div>
                                 <input
                                     type="text"
                                     id="input"

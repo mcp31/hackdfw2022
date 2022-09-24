@@ -118,3 +118,8 @@ body.active-modal {
         height: 100px;
         width: 80px;
 }
+
+.setBudgetLine {
+    display: flex;
+    justify-content: space-between;
+}
