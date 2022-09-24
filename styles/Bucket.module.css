@@ -107,8 +107,10 @@ body.active-modal {
 
 .addBucketButton {
         padding: 10px 20px;
-        display: block;
-        background: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: none; 
         margin-top: 31px;
         font-size: 18px;
         margin-right: 10px;

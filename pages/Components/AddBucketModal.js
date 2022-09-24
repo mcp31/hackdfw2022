@@ -5,7 +5,7 @@ import styles from '../../styles/Bucket.module.css';
 class NameForm extends React.Component{
     constructor(props) {
       super(props);
-      this.state = {value: `${props.name}`};
+      this.state = {value: "Desired Name"};
   
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -36,7 +36,7 @@ class NameForm extends React.Component{
   class AmountForm extends React.Component{
     constructor(props) {
       super(props);
-      this.state = {value: '$400'};
+      this.state = {value: 'Desired Budget'};
   
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -75,14 +75,16 @@ export default function AddBucketModal(props) {
         <>
                 <div>
                     <button className={styles.addBucketButton} onClick={toggleModal}>
-                        <div className={styles.addBucket}></div>
+                        <div className={styles.addBucket}>
+                          <text>+</text>
+                        </div>
                     </button>
                 </div>
                 {modal && (
                 <div className={styles.modal}>
                     <div className={styles.overlay}></div>
                 <div className={styles.modalContent}>
-                    <div className={styles.title}> <h2>Edit Bucket</h2></div>
+                    <div className={styles.title}> <h2>Add Bucket</h2></div>
                     <div>
                         Name:
                     </div>
@@ -98,7 +100,7 @@ export default function AddBucketModal(props) {
 
                     <div className={styles.buttons}>
                         <button className={styles.cancel} onClick={toggleModal}>Cancel</button>
-                        <button className={styles.update} onClick={toggleModal}>Update</button>
+                        <button className={styles.update} onClick={toggleModal}>Add</button>
                     </div>
                 </div>
 
