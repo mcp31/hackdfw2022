@@ -1,4 +1,4 @@
-.timeRemainingTitle {
+.sectionHeader {
   color: #404040;
 }
 
@@ -6,6 +6,26 @@
   background-color: #85C3C3;
   height: 2rem;
   border-radius: 10px;
+}
+
+.progressBarPercentage {
+  background-color: #1A545B;
+  height: 2rem;
+  border-radius: 10px;
+}
+
+.transactionCard {
+  background-color: #FFF;
+  height: 100px;
+  filter: drop-shadow(3px 2px 4px #9d9d9d);
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.transactionCardCategoryColor {
+  width: 60px;
+  height: 100px;
+  border-radius: 10px 0 0 10px;
 }
 
 /* Examples */
@@ -143,4 +163,11 @@
 .bucketList {
   display: flex;
   overflow-x: scroll;
+  padding-bottom: 20px;
+}
+
+.transactions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
