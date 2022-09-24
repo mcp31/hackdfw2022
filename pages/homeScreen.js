@@ -1,18 +1,19 @@
 import styles from '../styles/Home.module.css'
+import bucketStyles from '../styles/Bucket.module.css'
 import AddTransactionModal from './Components/AddTransactionModal'
 import Bucket from './Components/Bucket'
-import { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import AddBucketModal from './Components/AddBucketModal';
+import ProgressBar from './Components/ProgressBar';
 
-const daysLeft = 15;
-const percentageAmount = "100px";
+const day = new Date().getDate();
+const month = new Date().getMonth();
+const year = new Date().getFullYear();
+const timeRemaining = daysInMonth(month, year) - day;
+const timePercentage = 100 - (timeRemaining / daysInMonth(month, year) * 100);
 
-function ProgressBar(props) {
-    return (
-        <div className={styles.progressBarBackground}>
-            <div className={styles.progressBarPercentage} style={{width: props.width}}></div>
-        </div>
-    )
+function daysInMonth (month, year) {
+    return new Date(year, month, 0).getDate();
 }
 
 function TransactionCard(props) {
@@ -24,6 +25,27 @@ function TransactionCard(props) {
 }
 
 export default function HomeScreen() {
+
+    const [input, setInput] = useState();
+
+    const [amountSpent, setAmountSpent] = useState(100);
+
+    const handleChange = event => {
+        setInput(event.target.value);
+    
+        console.log('value is:', event.target.value)};
+    const [budget, setBudget] = useState(0);
+
+    const [modal, setModal] = useState(false);
+
+    const toggleModal = () => {
+        setModal(!modal);
+    }
+    const updateBudget = () => {
+        setModal(!modal);
+        setBudget(input);
+    }
+
     return (
         <div>
             <div>
@@ -34,16 +56,46 @@ export default function HomeScreen() {
             <div>
                 <h1 className={styles.sectionHeader}>
                     Time Remaining
+                    <ProgressBar percentage={timePercentage}/>
                 </h1>
-                <ProgressBar width={daysLeft}></ProgressBar>
-                <h3>13 Days</h3>
+
+                <h3>{timeRemaining} days left!</h3>
             </div>
             <div>
-                <h1 className={styles.sectionHeader}>
-                    Budget
-                </h1>
-                <ProgressBar width={daysLeft}></ProgressBar>
-                <h3>$156 spent of $760</h3>
+                <div>
+                    <div className={styles.changeBudgetDiv}>
+                        <h1 className={styles.sectionHeader}>
+                            Budget
+                        </h1>
+                        <button className={styles.changeBudgetButton} onClick={toggleModal}> Edit Budget </button>
+                    </div>
+                    {modal && (
+                    <div className={bucketStyles.modal}>
+                        <div className={bucketStyles.overlay}></div>
+                        <div className={bucketStyles.modalContent}>
+                            <div className={bucketStyles.title}> <h3>Edit Budget</h3></div>
+                            <div>
+                                Amount:
+                            </div>
+                            <div>
+                                <input
+                                    type="text"
+                                    id="input"
+                                    name="input"
+                                    onChange={handleChange}
+                                    value={input}
+                                />
+                            </div>  
+                            <div className={bucketStyles.buttons}>
+                                <button className={bucketStyles.cancel} onClick={toggleModal}>Cancel</button>
+                                <button className={bucketStyles.update} onClick={updateBudget}>Update</button>
+                            </div>
+                        </div>
+
+                    </div>)}
+                    <ProgressBar percentage={100 - (amountSpent/budget)*100}/>
+                </div>
+                <h3>${amountSpent} spent of ${budget}</h3>
 
             </div>
             <div>
@@ -78,8 +130,5 @@ export default function HomeScreen() {
                 <TransactionCard categoryColor="#82B9CF"></TransactionCard>
             </div>
         </div>
-        
-        
-
     )
 }

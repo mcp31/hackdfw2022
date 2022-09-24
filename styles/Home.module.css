@@ -8,12 +8,6 @@
   border-radius: 10px;
 }
 
-.progressBarPercentage {
-  background-color: #1A545B;
-  height: 2rem;
-  border-radius: 10px;
-}
-
 .transactionCard {
   background-color: #FFF;
   height: 100px;
@@ -167,6 +161,19 @@
 }
 
 .transactions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.changeBudgetButton {
+  font-size: 10px;
+  border-radius: 10%;
+  height: 30px;
+  background-color: lightcyan;
+}
+
+.changeBudgetDiv{
   display: flex;
   justify-content: space-between;
   align-items: center;
