@@ -33,12 +33,15 @@ export default function HomeScreen() {
                     Time Remaining
                 </h1>
                 <ProgressBar width={daysLeft}></ProgressBar>
+                <h3>13 Days</h3>
             </div>
             <div>
                 <h1 className={styles.sectionHeader}>
                     Budget
                 </h1>
                 <ProgressBar width={daysLeft}></ProgressBar>
+                <h3>$156 spent of $760</h3>
+
             </div>
             <div>
                 <h1 className={styles.sectionHeader}>
