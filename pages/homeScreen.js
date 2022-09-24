@@ -93,7 +93,7 @@ export default function HomeScreen() {
                         </div>
 
                     </div>)}
-                    <ProgressBar percentage={100 - (amountSpent/budget)*100}/>
+                    <ProgressBar percentage={(amountSpent/budget)*100}/>
                 </div>
                 <h3>${amountSpent} spent of ${budget}</h3>
 
