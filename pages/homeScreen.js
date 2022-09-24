@@ -1,4 +1,4 @@
-import styles from '../styles/Login.module.css'
+import styles from '../styles/Home.module.css'
 
 export default function HomeScreen() {
     return (
@@ -9,12 +9,10 @@ export default function HomeScreen() {
                 </h1>
             </div>
             <div>
-                <h1>
+                <h1 className={styles.timeRemainingTitle}>
                     Time Remaining
                 </h1>
-                <h3>
-                    Progress Bar
-                </h3>
+                <div className={styles.progressBar}></div>
             </div>
             <div>
                 <h1>
