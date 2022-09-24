@@ -15,6 +15,14 @@ function ProgressBar(props) {
     )
 }
 
+function TransactionCard(props) {
+    return (
+        <div className={styles.transactionCard}>
+            
+        </div>
+    )
+}
+
 export default function HomeScreen() {
     const [screenSize, getDimension] = useState({
         dynamicWidth: window.innerWidth,
@@ -43,19 +51,19 @@ export default function HomeScreen() {
                 </h1>
             </div>
             <div>
-                <h1 className={styles.timeRemainingTitle}>
+                <h1 className={styles.sectionHeader}>
                     Time Remaining
                 </h1>
                 <ProgressBar width={daysLeft} totalWidth={screenSize.dynamicWidth}></ProgressBar>
             </div>
             <div>
-                <h1>
+                <h1 className={styles.sectionHeader}>
                     Budget
                 </h1>
                 <ProgressBar width={daysLeft} totalWidth={screenSize.dynamicWidth}></ProgressBar>
             </div>
             <div>
-                <h1>
+                <h1 className={styles.sectionHeader}>
                     Your Buckets
                 </h1>
                 <h3>
@@ -63,12 +71,13 @@ export default function HomeScreen() {
                 </h3>
             </div>
             <div>
-                <h1>
+                <h1 className={styles.sectionHeader}>
                     Transactions
                 </h1>
                 <h3>
                     List of Transactions
                 </h3>
+                <TransactionCard></TransactionCard>
             </div>
         </div>
         
