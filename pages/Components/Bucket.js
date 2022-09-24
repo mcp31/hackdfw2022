@@ -1,72 +1,36 @@
 import React, {useState} from "react";
 import styles from '../../styles/Bucket.module.css';
 
-
-class NameForm extends React.Component{
-    constructor(props) {
-      super(props);
-      this.state = {value: `${props.name}`};
-  
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-    }
-  
-    handleChange(event) {
-      this.setState({value: event.target.value});
-    }
-  
-    handleSubmit(event) {
-      alert('A name was submitted: ' + this.state.value);
-      event.preventDefault();
-    }
-
-    render() {
-      return (
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
-      );
-    }
-  }
-
-
-  class AmountForm extends React.Component{
-    constructor(props) {
-      super(props);
-      this.state = {value: '$400'};
-  
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-    }
-  
-    handleChange(event) {
-      this.setState({value: event.target.value});
-    }
-  
-    handleSubmit(event) {
-      alert('An amount was submitted: ' + this.state.value);
-      event.preventDefault();
-    }
-
-    render() {
-      return (
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
-      );
-    }
-  }
-
-
 export default function Bucket(props) {
 
     const [modal, setModal] = useState(false);
+
+    const [name, setName] =useState({
+      input: `${props.name}`,
+      value: `${props.name}`,
+    });
+
+    const [amount, setAmount] =useState({
+      input: `${props.amount}`,
+      value: `${props.amount}`,
+    });
+
+    const handleNameChange = event => {
+      setName({...name, input: event.target.value});};
+
+    const handleAmountChange = event => {
+      setAmount({...amount, input: event.target.value});};
+
+    const updateBucket = () => {
+        setModal(!modal);
+        setName({...name, value: name.input});
+        setAmount({...amount, value: amount.input});
+    }
+
+    
+    const toggleModal = () => {
+      setModal(!modal);
+    }
 
     const progressBar ={
         marginLeft: '10px',
@@ -83,9 +47,6 @@ export default function Bucket(props) {
         marginBottom: `-${props.percentage}px`,
     }
 
-    const toggleModal = () => {
-        setModal(!modal);
-    }
     return (
         <>
                 <div className={styles.bucket}>
@@ -102,21 +63,31 @@ export default function Bucket(props) {
                         Name:
                     </div>
                     <div>
-                        <NameForm name={props.name}/>
+                         <input
+                            type="text"
+                            id="input"
+                            name="input"
+                            onChange={handleNameChange}
+                            value={name.input}
+                        />
                     </div>
                     <div>
                         Amount:
                     </div>
                     <div>
-                        <AmountForm/>
+                      <input
+                          type="text"
+                          id="input"
+                          name="input"
+                          onChange={handleAmountChange}
+                          value={amount.input}
+                          />
                     </div>  
-
                     <div className={styles.buttons}>
                         <button className={styles.cancel} onClick={toggleModal}>Cancel</button>
-                        <button className={styles.update} onClick={toggleModal}>Update</button>
+                        <button className={styles.update} onClick={updateBucket}>Update</button>
                     </div>
                 </div>
-
             </div>
             )}
         </>
