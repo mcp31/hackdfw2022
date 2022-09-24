@@ -53,9 +53,11 @@ export default function HomeScreen() {
                     List of Buckets
                     </h3>
                     <div className={styles.bucketList}>
-                        <Bucket className={styles.bucket}/>
-                        <Bucket className={styles.bucket}/>
-                        <Bucket className={styles.bucket}/>
+                        <Bucket className={styles.bucket} name={"Rent"} color={"blue"} percentage={"20"}/>
+                        <Bucket className={styles.bucket} name={"Car"} color={"blue"} percentage={"60"}/>
+                        <Bucket className={styles.bucket} name={"Food"} color={"blue"} percentage={"30"}/>
+                        <Bucket className={styles.bucket} name={"Gas"} color={"blue"} percentage={"100"}/>
+                        <Bucket className={styles.bucket} name={"Other"} color={"blue"} percentage={"85"}/>
                     </div>
 
             </div>

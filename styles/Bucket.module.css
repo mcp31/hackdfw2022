@@ -5,9 +5,12 @@ body.active-modal {
 .modalButton {
     padding: 10px 20px;
     display: block;
+    background: none;
     margin-top:  10px;
     font-size: 18px;
-    margin-right: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    height: 100px;
 }
 
 .modal, .overlay {
@@ -25,6 +28,7 @@ body.active-modal {
 }
 .modalContent {
     position: absolute;
+    z-index: 100;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -75,9 +79,17 @@ body.active-modal {
 
 .addTransactionButton {
     border-radius: 40%;
+    height: 40px;
+    width: 40px;
+    background-color: lightcyan;
+    font-size: 30px;
 }
 
 .textBox {
     display: inline-block;
     height: 30px;
+}
+
+.bucket {
+    text-align: center;
 }

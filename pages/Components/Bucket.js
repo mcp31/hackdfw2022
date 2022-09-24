@@ -64,17 +64,30 @@ class NameForm extends React.Component{
   }
 
 
-export default function Bucket() {
+export default function Bucket(props) {
 
     const [modal, setModal] = useState(false);
+
+    const progressBar ={
+        marginLeft: '10px',
+        position: 'relative',
+        transform: 'rotatex(180deg)',
+        transformOrigin: 'top',
+        backgroundColor: `${props.color}`,
+        zIndex: '-1',
+        width: '78px',
+        height: `${props.percentage}px`,
+    }
 
     const toggleModal = () => {
         setModal(!modal);
     }
     return (
         <>
-                <div>
-                    <button className={styles.modalButton} onClick={toggleModal}> BUCKET </button>
+                <div className={styles.bucket}>
+                    {props.name}:{ props.percentage}%
+                    <button className={styles.modalButton} onClick={toggleModal}> ART </button>
+                    <div style={progressBar}></div>
                 </div>
                 {modal && (
                 <div className={styles.modal}>
