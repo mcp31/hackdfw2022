@@ -23,9 +23,10 @@ export default function Home() {
         }
     });
 
-    return ( < div className = { styles.container } >
-        <
-        HomeScreen > < /HomeScreen> </div >
+    return ( 
+    < div className = { styles.container } >
+      <HomeScreen> </HomeScreen> 
+    </div >
     )
 
 }
